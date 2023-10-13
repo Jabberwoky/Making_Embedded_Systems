@@ -3,7 +3,7 @@ Homework and Project documents for Green Turtle Cohort of Making Embedded System
 ----------
 
 ### Overview
-This class is taught by Elicia White, Author of ["Making Embedded Systems: Design Patterns for Great Software"] (https://www.amazon.com/Making-Embedded-Systems-Patterns-Software/dp/1449302149). 
+This class is taught by Elicia White, Author of ["Making Embedded Systems: Design Patterns for Great Software"](https://www.amazon.com/Making-Embedded-Systems-Patterns-Software/dp/1449302149). 
 I participated in the 4th iteration of the course on [Classpert](https://classpert.com/) 
 
 ### Objectives
@@ -18,4 +18,4 @@ Areas I hope to improve through this course:
 - Embedded software architecture
 - How to locate and identify quality code libraries for use in projects
 
-![Ready to learn]([https://media.makeameme.org/created/i-am-ready-5c3e6b.jpg)
+![Ready to learn](https://media.makeameme.org/created/i-am-ready-5c3e6b.jpg)
