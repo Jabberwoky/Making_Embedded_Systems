@@ -18,4 +18,4 @@ Areas I hope to improve through this course:
 - Embedded software architecture
 - How to locate and identify quality code libraries for use in projects
 
-![Ready to learn](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmakeameme.org%2Fmeme%2Fi-am-ready-5c3e6b&psig=AOvVaw3VL5wL7ICtZtAPCN4NLov2&ust=1697306669445000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMjIl5rO84EDFQAAAAAdAAAAABAO)
+![Ready to learn]([https://media.makeameme.org/created/i-am-ready-5c3e6b.jpg)
