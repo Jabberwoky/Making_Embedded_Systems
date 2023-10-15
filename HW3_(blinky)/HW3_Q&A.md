@@ -3,7 +3,9 @@
 From Page 185 in the [RM0038 Reference manual](https://www.st.com/resource/en/reference_manual/rm0038-stm32l100xx-stm32l151xx-stm32l152xx-and-stm32l162xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf):
 
 GPIO port output data register (GPIOx_ODR) (x = A..H) Address offset: 0x14
+
 Or:
+
 GPIO port bit set/reset register (GPIOx_BSRR) (x = A..H) Address offset: 0x18
 
 ### What are the registers that you read in order to find out the state of the button?
