@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,8 +101,21 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+  bool debounce(){
+    static uint16_t state = 0;
+    bool RawButtonPress = HAL_GPIO_ReadPin(My_Button_GPIO_Port, My_Button_Pin);
+    state = (state<<1) | !RawButtonPress | 0xfe00;
+    return (state == 0xff00);
+  }
+
   while (1)
   {
+	  if(debounce()){
+		  HAL_GPIO_WritePin(My_Blue_LED_GPIO_Port, My_Blue_LED_Pin,1);
+	  }
+	  else {
+		  HAL_GPIO_WritePin(My_Blue_LED_GPIO_Port, My_Blue_LED_Pin,0);
+	  }
 	  HAL_GPIO_TogglePin(My_Green_LED_GPIO_Port, My_Green_LED_Pin);
 	  HAL_Delay(500);
     /* USER CODE END WHILE */
@@ -309,8 +322,8 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : My_Button_Pin */
   GPIO_InitStruct.Pin = My_Button_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(My_Button_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : My_Blue_LED_Pin My_Green_LED_Pin */
