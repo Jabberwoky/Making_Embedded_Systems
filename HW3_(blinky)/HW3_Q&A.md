@@ -9,3 +9,5 @@ It appears there are two registeres that could be used.
 -GPIO port input data register (GPIOx_IDR) (x = A..H) Address offset: 0x10
 
 ### Can you read the register directly and see the button change in a debugger or by printing out thes value of the memory at the register’s address?
+
+I was able to see the button change in the debugger which helped to sort out the debouncing. Ran out of time to implmenet the interrupt this week. 
