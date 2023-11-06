@@ -19,6 +19,8 @@ static eCommandResult_T ConsoleCommandVer(const char buffer[]);
 static eCommandResult_T ConsoleCommandHelp(const char buffer[]);
 static eCommandResult_T ConsoleCommandParamExampleInt16(const char buffer[]);
 static eCommandResult_T ConsoleCommandParamExampleHexUint16(const char buffer[]);
+static eCommandResult_T ConsoleCommandLedOn(const char buffer[]);
+static eCommandResult_T ConsoleCommandLedOff(const char buffer[]);
 
 static const sConsoleCommandTable_T mConsoleCommandTable[] =
 {
@@ -27,10 +29,36 @@ static const sConsoleCommandTable_T mConsoleCommandTable[] =
     {"ver", &ConsoleCommandVer, HELP("Get the version string")},
     {"int", &ConsoleCommandParamExampleInt16, HELP("How to get a signed int16 from params list: int -321")},
     {"u16h", &ConsoleCommandParamExampleHexUint16, HELP("How to get a hex u16 from the params list: u16h aB12")},
-	//{"LED", &ConsoleCommandLED, HELP("Gets the state of the LED")},
+    {"ledon", &ConsoleCommandLedOn, HELP("Enable blue LED")},
+    {"ledoff", &ConsoleCommandLedOff, HELP("Disable blue  LED")},
 
 	CONSOLE_COMMAND_TABLE_END // must be LAST
 };
+
+static eCommandResult_T ConsoleCommandLedOn(const char buffer[])
+{
+	eCommandResult_T result = COMMAND_SUCCESS;
+
+    IGNORE_UNUSED_VARIABLE(buffer);
+
+    HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_SET);
+	ConsoleIoSendString("LED Blue ON");
+	ConsoleIoSendString(STR_ENDLINE);
+	return result;
+}
+
+static eCommandResult_T ConsoleCommandLedOff(const char buffer[])
+{
+	eCommandResult_T result = COMMAND_SUCCESS;
+
+    IGNORE_UNUSED_VARIABLE(buffer);
+
+    HAL_GPIO_WritePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin, GPIO_PIN_RESET);
+    ConsoleIoSendString("LED Blue OFF");
+	ConsoleIoSendString(STR_ENDLINE);
+	return result;
+}
+
 
 static eCommandResult_T ConsoleCommandComment(const char buffer[])
 {
@@ -101,17 +129,6 @@ static eCommandResult_T ConsoleCommandVer(const char buffer[])
 	return result;
 }
 
-
-/*static eCommandResult_T ConsoleCommandLED(const char buffer[])
-{
-	eCommandResult_T result = COMMAND_SUCCESS;
-
-    IGNORE_UNUSED_VARIABLE(buffer);
-
-	ConsoleIoSendString(VERSION_STRING);
-	ConsoleIoSendString(STR_ENDLINE);
-	return result;
-}*/
 
 const sConsoleCommandTable_T* ConsoleCommandsGetTable(void)
 {
