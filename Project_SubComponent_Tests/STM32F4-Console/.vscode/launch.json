@@ -1,0 +1,50 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "./Debug/STM32F4-Console.elf",
+      "name": "Debug with JLink",
+      "request": "launch",
+      "type": "cortex-debug",
+      "device": "",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      "servertype": "jlink"
+    },
+    {
+      "cwd": "${workspaceFolder}",
+      "executable": "./Debug/STM32F4-Console.elf",
+      "name": "Debug with ST-Link",
+      "request": "launch",
+      "type": "cortex-debug",
+      "runToEntryPoint": "main",
+      "showDevDebugOutput": "none",
+      "servertype": "stlink"
+    },
+    {
+      "name": "Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "program": "${command:cmake.launchTargetPath}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "${command:vscode-embedded.st.gdb}",
+      "miDebuggerServerAddress": "localhost:3333",
+      "debugServerPath": "${command:vscode-embedded.st.gdbserver}",
+      "debugServerArgs": "--stm32cubeprogrammer-path ${command:vscode-embedded.st.cubeprogrammer} --swd --port-number 3333",
+      "serverStarted": "Waiting for connection on port .*\\.\\.\\.",
+      "stopAtConnect": true,
+      "postRemoteConnectCommands": [
+        {
+          "text": "load build/debug/build/STM32F4-Console.elf"
+        }
+      ],
+      "logging": {
+        "engineLogging": true
+      },
+      "preLaunchTask": "Build",
+      "svdPath": "${command:vscode-embedded.st.svd}/STM32F411.svd"
+    }
+  ]
+}

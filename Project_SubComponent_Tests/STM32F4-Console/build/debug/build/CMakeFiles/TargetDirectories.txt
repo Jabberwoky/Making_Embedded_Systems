@@ -1,0 +1,3 @@
+C:/Users/Demian/STM32CubeIDE/workspace_1.13.2/STM32F4-Console/build/debug/build/CMakeFiles/STM32F4-Console.dir
+C:/Users/Demian/STM32CubeIDE/workspace_1.13.2/STM32F4-Console/build/debug/build/CMakeFiles/edit_cache.dir
+C:/Users/Demian/STM32CubeIDE/workspace_1.13.2/STM32F4-Console/build/debug/build/CMakeFiles/rebuild_cache.dir
